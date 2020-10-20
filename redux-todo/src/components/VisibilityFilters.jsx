@@ -1,8 +1,9 @@
 import React from "react";
 import cx from "classnames";
+import { VISIBILITY_FILTERS } from "../constants";
+
 import { connect } from "react-redux";
 import { setFilter } from "../redux/actions";
-import { VISIBILITY_FILTERS } from "../constants";
 
 const VisibilityFilters = ({ activeFilter, setFilter }) => {
   return (
@@ -16,9 +17,7 @@ const VisibilityFilters = ({ activeFilter, setFilter }) => {
               "filter",
               currentFilter === activeFilter && "filter--active"
             )}
-            onClick={() => {
-              setFilter(currentFilter);
-            }}
+            onClick={() => {setFilter(currentFilter)} /** waiting for setFilter handler*/}
           >
             {currentFilter}
           </span>
@@ -31,5 +30,5 @@ const VisibilityFilters = ({ activeFilter, setFilter }) => {
 const mapStateToProps = (state) => {
   return { activeFilter: state.visibilityFilter };
 };
-// export default VisibilityFilters;
+
 export default connect(mapStateToProps, { setFilter })(VisibilityFilters);
