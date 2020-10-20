@@ -23,7 +23,6 @@ export default function (state = initialState, action) {
       };
     }
     case TOGGLE_TODO: {
-      console.log("toggling todo");
       // toggle todo logic
       const { id } = action.payload;
       return {
